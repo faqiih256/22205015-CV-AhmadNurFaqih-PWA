@@ -1,6 +1,6 @@
 {
     "name": "CV Ahmad Nurfaqih",
-    "short_name": "CV Ahmad Nurfaqih",
+    "short_name": "CV Ahmad",
     "icons": [
         {
             "src": "images/Logo_CV_128.png",
@@ -37,5 +37,19 @@
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#333333"
+    "theme_color": "#333333",
+    "screenshots": [
+        {
+            "src": "images/Desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "images/Mobile.png",
+            "sizes": "720x1280",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ]
 }
