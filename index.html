@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Ahmad Nurfaqih</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/Logo_CV.png">
+    <meta name="theme-color" content="white">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <nav class="navbar" >
+            <div class="logo" href="images/Logo_CV.png">Ahmad Nurfaqih</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#data-diri">About Me</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Halaman Utama -->
+    <section id="home" class="section-home">
+        <div class="profile">
+            <img src="images/Fakih.jpeg" alt="Foto Ahmad Nurfaqih" class="profile-pic">
+            <h1>Ahmad Nurfaqih</h1>
+            <h2>Programmer | Traveling | Programing</h2>
+        </div>
+        
+        <div class="info">
+            <div id="token"></div>
+            <div id="msg"></div>
+            <div id="notis"></div>
+            <div id="err"></div>
+            <button id="tombol">Izinkan Notifikasi</button>
+        </div>
+    </section>
+
+    <section id="data-diri" class="section-data">
+        <h2>Data Diri</h2>
+        <p>Hello, Saya Ahmad Nurfaqih, seorang pencinta traveling yang selalu bersemangat untuk 
+            menjelajahi tempat-tempat baru dan bertemu dengan budaya berbeda. 
+            Bagi saya, setiap perjalanan adalah kesempatan untuk belajar, memperluas perspektif, dan 
+            menemukan keindahan dalam keragaman dunia. Saat ini juga saya sedang 
+            belajar tentang pemrograman.</p>
+        <ul class="data-list">
+            <li><strong>Age</strong>: 21</li>
+            <li><strong>Residence</strong>: Indonesia</li>
+            <li><strong>Address</strong>: Kepunduhan, Kramat, Tegal, Jawa Tengah</li>
+            <li><strong>Email</strong>: <a href="mailto:faqiih06@gmail.com">faqiih06@gmail.com</a></li>
+            <li><strong>Phone</strong>: <a href="tel:+62895385219117">+62895385219117</a></li>
+        </ul>
+    </section>
+
+    <!-- Halaman Kontak -->
+    <section id="kontak" class="section-kontak">
+        <h2>Kontak</h2>
+        <form id="contact-form">
+            <label for="nama">Nama:</label><br>
+            <input type="text" id="nama" name="nama" required><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="pesan">Pesan:</label><br>
+            <textarea id="pesan" name="pesan" required></textarea><br>
+
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Ahmad Nurfaqih</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/indexdb.js"></script>
+    <script src="main.js"></script>      
+</body>
+</html>
