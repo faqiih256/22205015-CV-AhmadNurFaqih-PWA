@@ -1,4 +1,4 @@
-const cacheName = 'cv-pwa-v1'; // Tambahkan versi untuk mempermudah pengelolaan cache
+const cacheName = 'cv-pwa-v2';
 const filesToCache = [
     'index.html',
     'styles.css',
