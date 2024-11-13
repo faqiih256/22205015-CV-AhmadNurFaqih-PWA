@@ -1,6 +1,5 @@
 const cacheName = 'cv-pwa-v1'; // Tambahkan versi untuk mempermudah pengelolaan cache
 const filesToCache = [
-    '/',
     'index.html',
     'styles.css',
     'manifest.json',
