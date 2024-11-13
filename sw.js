@@ -2,7 +2,7 @@ var cacheName = 'app-shell';
 var filesToCache = [
   '/',
   'index.html',
-  // 'style.css',
+   'style.css'
   // 'manifest.json',
   // 'main.js',
   // 'firebase-messaging-sw.js',
