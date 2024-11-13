@@ -91,5 +91,23 @@
     <script src="js/main.js"></script>
     <script src="js/indexdb.js"></script>
     <script src="notifikasi.js"></script> 
+    <script>
+        window.onload = () => {
+    'use strict';
+  
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+               .register('sw.js');
+    }
+  }
+    </script>
+    <script>
+        const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+
+burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+    </script>
 </body>
 </html>
