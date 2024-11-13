@@ -22,48 +22,19 @@ const filesToCache = [
 ];
 
 self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(filesToCache);
-    })
-  );
-  self.skipWaiting();
+    e.waitUntil(
+      caches.open(cacheName).then(function(cache) {
+        return cache.addAll(filesToCache);
+      })
+    );
+    self.skipWaiting();
 });
+  
 
-// Activate event (cache cleanup)
-self.addEventListener('activate', function(e) {
-  e.waitUntil(
-    caches.keys().then(function(keyList) {
-      return Promise.all(keyList.map(function(key) {
-        if (key !== cacheName) {
-          return caches.delete(key);
-        }
-      }));
-    })
-  );
-  return self.clients.claim();
-});
-
-// Fetch event (cache-first strategy)
 self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.match(e.request).then(function(response) {
-      if (response) {
-        return response;
-      }
-      return fetch(e.request).then(function(response) {
-        if (!response || response.status !== 200 || response.type !== 'basic') {
-          return response;
-        }
-        const responseToCache = response.clone();
-        caches.open(cacheName).then(function(cache) {
-          cache.put(e.request, responseToCache);
-        });
-        return response;
-      });
-    }).catch(function() {
-      // Fallback to offline content
-      return caches.match('/offline.html');
-    })
-  );
+    e.respondWith(
+      caches.match(e.request).then(function(response) {
+        return response || fetch(e.request);
+      })
+    );
 });
