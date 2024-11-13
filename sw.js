@@ -41,11 +41,11 @@ self.addEventListener('fetch', function(e) {
 // Activate new cache
 self.addEventListener('activate', (event) => {
     event.waitUntil(
-        caches.keys().then((cacheNames) => {
+        caches.keys().then((CACHE_NAME) => {
             return Promise.all(
-                cacheNames.filter((cacheName) => {
+                CACHE_NAME.filter((CACHE_NAME) => {
                     return cacheName !== CACHE_NAME;
-                }).map((cacheName) => caches.delete(cacheName))
+                }).map((CACHE_NAME) => caches.delete(CACHE_NAME))
             );
         })
     );
