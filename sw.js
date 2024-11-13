@@ -2,9 +2,8 @@ var cacheName = 'CV Ahmad Nurfaqih';
 var filesToCache = [
   '/',
   'index.html',
-   'style.css'
+  'styles.css'
   // 'manifest.json',
-  // 'main.js',
   // 'firebase-messaging-sw.js',
   // 'images/Fakih.jpeg',
   // 'images/Logo_CV_128.png',
