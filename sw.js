@@ -5,7 +5,7 @@ const filesToCache = [
     'styles.css',
     'manifest.json',
     'firebase-messaging-sw.js',
-    'main.js',
+    'notifikasi.js',
     'images/Fakih.jpeg',
     'images/Logo_CV_128.png',
     'images/Logo_CV_144.png',
