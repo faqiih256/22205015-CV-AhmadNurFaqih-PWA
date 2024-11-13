@@ -2,21 +2,21 @@ var cacheName = 'app-shell';
 var filesToCache = [
   '/',
   'index.html',
-  'style.css',
-  'manifest.json',
-  'main.js',
-  'firebase-messaging-sw.js',
-  'images/Fakih.jpeg',
-  'images/Logo_CV_128.png',
-  'images/Logo_CV_144.png',
-  'images/Logo_CV_152.png',
-  'images/Logo_CV_192.png',
-  'images/Logo_CV_256.png',
-  'images/Logo_CV_512.png',
-  'images/Logo_CV.png',
-  'images/Lonceng.png',
-  'js/main.js',
-  'js/indexdb.js'
+  // 'style.css',
+  // 'manifest.json',
+  // 'main.js',
+  // 'firebase-messaging-sw.js',
+  // 'images/Fakih.jpeg',
+  // 'images/Logo_CV_128.png',
+  // 'images/Logo_CV_144.png',
+  // 'images/Logo_CV_152.png',
+  // 'images/Logo_CV_192.png',
+  // 'images/Logo_CV_256.png',
+  // 'images/Logo_CV_512.png',
+  // 'images/Logo_CV.png',
+  // 'images/Lonceng.png',
+  // 'js/main.js',
+  // 'js/indexdb.js'
 ];
 
 /* Start the service worker and cache all of the app's content */
