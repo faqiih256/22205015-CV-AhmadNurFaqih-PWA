@@ -1,5 +1,5 @@
-var cacheName = 'cv-pwa';
-var filesToCache = [
+const cacheName = 'cv-pwa-v1'; // Tambahkan versi untuk mempermudah pengelolaan cache
+const filesToCache = [
     '/',
     'index.html',
     'styles.css',
@@ -21,20 +21,50 @@ var filesToCache = [
     'js/indexdb.js'
 ];
 
-self.addEventListener('install', function(e) {
-    e.waitUntil(
-      caches.open(cacheName).then(function(cache) {
-        return cache.addAll(filesToCache);
-      })
+// Install event: cache semua file yang diperlukan
+self.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches.open(cacheName).then(function(cache) {
+            console.log('Caching all resources');
+            return cache.addAll(filesToCache);
+        })
     );
-    self.skipWaiting();
+    self.skipWaiting(); // Memastikan service worker langsung aktif setelah instalasi
 });
-  
 
-self.addEventListener('fetch', function(e) {
-    e.respondWith(
-      caches.match(e.request).then(function(response) {
-        return response || fetch(e.request);
-      })
+// Activate event: hapus cache lama jika ada pembaruan
+self.addEventListener('activate', function(event) {
+    event.waitUntil(
+        caches.keys().then(function(cacheNames) {
+            return Promise.all(
+                cacheNames.map(function(name) {
+                    if (name !== cacheName) {
+                        console.log('Deleting old cache:', name);
+                        return caches.delete(name);
+                    }
+                })
+            );
+        })
+    );
+    self.clients.claim(); // Memastikan service worker langsung aktif di semua tab
+});
+
+// Fetch event: fallback ke cache jika offline
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            return response || fetch(event.request).then(fetchResponse => {
+                // Jika berhasil mengambil dari jaringan, tambahkan ke cache
+                return caches.open(cacheName).then(cache => {
+                    cache.put(event.request, fetchResponse.clone());
+                    return fetchResponse;
+                });
+            }).catch(() => {
+                // Fallback ke halaman utama jika offline
+                if (event.request.mode === 'navigate') {
+                    return caches.match('index.html');
+                }
+            });
+        })
     );
 });
