@@ -15,6 +15,8 @@ const urlsToCache = [
     'images/Logo_CV_512.png',
     'images/Logo_CV.png',
     'images/Lonceng.png',
+    'images/Desktop.png',
+    'images/Mobile.png',
     'js/indexdb.js',
     'js/main.js'
 ];
