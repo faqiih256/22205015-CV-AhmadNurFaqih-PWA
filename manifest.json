@@ -31,6 +31,7 @@
             "src": "images/Logo_CV_512.png",
             "sizes": "512x512",
             "type": "image/png"
+            "purpose" : "any maskable"
         }
     ],
     "description": "Personal CV of Ahmad Nurfaqih as a PWA",
