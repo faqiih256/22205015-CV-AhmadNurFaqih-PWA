@@ -2,23 +2,23 @@ const cacheName = 'cv-pwa';
 const filesToCache = [
     '/',
     'index.html',
-    'styles.css',
     'manifest.json',
+    'styles.css',
     'firebase-messaging-sw.js',
     'notifikasi.js',
     'images/Desktop.png',
     'images/Fakih.jpeg',
+    'images/Logo_CV.png',
     'images/Logo_CV_128.png',
     'images/Logo_CV_144.png',
     'images/Logo_CV_152.png',
     'images/Logo_CV_192.png',
     'images/Logo_CV_256.png',
     'images/Logo_CV_512.png',
-    'images/Logo_CV.png',
     'images/Lonceng.png',
     'images/Mobile.png',
-    'js/main.js',
-    'js/indexdb.js'
+    'js/indexdb.js',
+    'js/main.js'
 ];
 
 /* Start the service worker and cache all of the app's content */
