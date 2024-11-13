@@ -8,7 +8,6 @@ if ('serviceWorker' in navigator) {
         });
 }
 
-
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 
