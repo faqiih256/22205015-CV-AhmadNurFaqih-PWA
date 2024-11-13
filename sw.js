@@ -1,5 +1,5 @@
-const CACHE_NAME = 'cv-pwa';
-const urlsToCache = [
+const cacheName = 'cv-pwa';
+const filesToCache = [
     '/',
     'index.html',
     'styles.css',
@@ -19,35 +19,20 @@ const urlsToCache = [
     'js/main.js'
 ];
 
-// Install Service Worker
-self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                return cache.addAll(urlsToCache);
-            })
+self.addEventListener('install', function(e) {
+    e.waitUntil(
+      caches.open(cacheName).then(function(cache) {
+        return cache.addAll(filesToCache);
+      })
     );
     self.skipWaiting();
 });
+  
 
-// Fetch cached assets
 self.addEventListener('fetch', function(e) {
     e.respondWith(
       caches.match(e.request).then(function(response) {
         return response || fetch(e.request);
       })
-    );
-});
-
-// Activate new cache
-self.addEventListener('activate', (event) => {
-    event.waitUntil(
-        caches.keys().then((CACHE_NAME) => {
-            return Promise.all(
-                CACHE_NAME.filter((CACHE_NAME) => {
-                    return CACHE_NAME !== CACHE_NAME;
-                }).map((CACHE_NAME) => caches.delete(CACHE_NAME))
-            );
-        })
     );
 });
