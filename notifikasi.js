@@ -29,7 +29,7 @@ window.onload = () => {
   
         // Register the service worker
         navigator.serviceWorker
-          .register("/firebase-messaging-sw.js") // Pastikan path ini benar
+          .register("firebase-messaging-sw.js") // Pastikan path ini benar
           .then(swReg => {
             console.log("Service Worker is registered", swReg);
             swRegistration = swReg;
