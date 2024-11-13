@@ -17,8 +17,8 @@ var filesToCache = [
     'images/Logo_CV.png',
     'images/Lonceng.png',
     'images/Mobile.png',
-    'js/indexdb.js',
-    'js/main.js'
+    'js/main.js',
+    'js/indexdb.js'
 ];
 
 self.addEventListener('install', function(e) {
