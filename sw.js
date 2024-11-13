@@ -1,4 +1,4 @@
-var cacheName = 'CV Ahmad Nurfaqih';
+var cacheName = 'cv-pwa';
 var filesToCache = [
   '/',
   'index.html',
