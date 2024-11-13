@@ -21,50 +21,41 @@ const filesToCache = [
     'js/indexdb.js'
 ];
 
-// Install event: cache semua file yang diperlukan
 self.addEventListener('install', function(event) {
+    console.log('[Service Worker] Install');
     event.waitUntil(
         caches.open(cacheName).then(function(cache) {
-            console.log('Caching all resources');
+            console.log('[Service Worker] Caching files');
             return cache.addAll(filesToCache);
         })
     );
-    self.skipWaiting(); // Memastikan service worker langsung aktif setelah instalasi
+    self.skipWaiting();
 });
 
-// Activate event: hapus cache lama jika ada pembaruan
+// Activate event: hapus cache lama
 self.addEventListener('activate', function(event) {
+    console.log('[Service Worker] Activate');
     event.waitUntil(
         caches.keys().then(function(cacheNames) {
             return Promise.all(
                 cacheNames.map(function(name) {
                     if (name !== cacheName) {
-                        console.log('Deleting old cache:', name);
+                        console.log('[Service Worker] Deleting old cache:', name);
                         return caches.delete(name);
                     }
                 })
             );
         })
     );
-    self.clients.claim(); // Memastikan service worker langsung aktif di semua tab
+    self.clients.claim();
 });
 
 // Fetch event: fallback ke cache jika offline
 self.addEventListener('fetch', function(event) {
+    console.log('[Service Worker] Fetching:', event.request.url);
     event.respondWith(
         caches.match(event.request).then(function(response) {
-            return response || fetch(event.request).then(fetchResponse => {
-                // Jika berhasil mengambil dari jaringan, tambahkan ke cache
-                return caches.open(cacheName).then(cache => {
-                    cache.put(event.request, fetchResponse.clone());
-                    return fetchResponse;
-                });
-            }).catch(() => {
-                // Fallback ke halaman utama jika offline
-                if (event.request.mode === 'navigate') {
-                    return caches.match('index.html');
-                }
-            });
+            return response || fetch(event.request).catch(() => caches.match('index.html'));
         })
     );
 });
