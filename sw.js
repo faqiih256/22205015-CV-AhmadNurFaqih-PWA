@@ -1,5 +1,5 @@
-const cacheName = 'cv-pwa';
-const filesToCache = [
+var cacheName = 'cv-pwa';
+var filesToCache = [
     '/',
     'index.html',
     'styles.css',
