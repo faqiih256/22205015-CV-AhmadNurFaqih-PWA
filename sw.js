@@ -1,5 +1,6 @@
-const cacheName = 'cv-pwa-v2';
+const cacheName = 'cv-pwa-v1';
 const filesToCache = [
+    '/',
     'index.html',
     'styles.css',
     'manifest.json',
