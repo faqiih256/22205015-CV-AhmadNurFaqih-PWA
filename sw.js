@@ -1,4 +1,4 @@
-var cacheName = 'app-shell';
+var cacheName = 'CV Ahmad Nurfaqih';
 var filesToCache = [
   '/',
   'index.html',
